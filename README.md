@@ -4,8 +4,8 @@ Landing page for Kottler & Kottler, a boutique, family-owned personal injury law
 
 ## Design and content sources
 
-- **Design:** the [Figma Make file](https://www.figma.com/make/FNu1Yi8zmbWh6E4vZd9bFt/Kottler---Kottler), version 3 (the default view). Its layout was modeled on [lawbrothers.com](https://lawbrothers.com/).
-- **Content:** firm details, case results, attorney names and contact information come from the firm's previous website, [kottlerpersonalinjuryattorney.com](https://kottlerpersonalinjuryattorney.com/).
+- **Design:** the [Figma Make file](https://www.figma.com/make/FNu1Yi8zmbWh6E4vZd9bFt/Kottler---Kottler), version 3 (the default view). Its layout was modeled on [lawbrothers.com](https://lawbrothers.com/). The Figma text was never checked and may be placeholder copy, so use it for layout only.
+- **Content (source of truth):** the firm's previous website, [kottlerpersonalinjuryattorney.com](https://kottlerpersonalinjuryattorney.com/). Every firm fact on the page (case results, attorneys, memberships, address, fax, phone, languages) must be traceable to it.
 - **No attorney photos.** At the client's request, the site does not show photos of the attorneys.
 
 ### Open questions for the client
@@ -13,6 +13,8 @@ Landing page for Kottler & Kottler, a boutique, family-owned personal injury law
 - Founding year: the site says 1968, but the previous site's FAQ says 1969.
 - The contact section promises a response "within 1 hour, and always within 8 hours" (from the previous site). Confirm this is still accurate.
 - Doug Kottler's previous bio was a single line. Request education and memberships if they should be listed.
+- The previous site shows a BBB seal. Confirm the accreditation is current before adding it.
+- Hours: the Figma design said "available 24/7", but the previous site never claims this, so it was removed. Add it back only if the client confirms.
 
 ### Content available for future sections
 

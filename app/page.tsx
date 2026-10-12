@@ -3,6 +3,7 @@ import { cacheLife } from "next/cache";
 import cityPhoto from "@/app/assets/la-building.jpg";
 import logo from "@/app/assets/kottler-logo.png";
 import aaajLogo from "@/app/assets/membership-aaaj.jpg";
+import caalaLogo from "@/app/assets/membership-caala.png";
 import forumLogo from "@/app/assets/membership-forum.png";
 import { LeadForm } from "./_components/LeadForm";
 import { SiteHeader } from "./_components/SiteHeader";
@@ -25,17 +26,17 @@ const areas = [
 ];
 
 const steps = [
-  { t: "Contact us", d: "Call us 24/7 or fill out the form. The consultation is free." },
+  { t: "Contact us", d: "Call us or fill out the form. The consultation is free." },
   { t: "Tell us about your case", d: "Share what happened. We listen and explain your options in plain English." },
   { t: "We get to work", d: "Your attorney handles the evidence and the insurance company while you recover." },
 ];
 
 const perks = [
   "No upfront fees",
-  "Pay nothing unless we win",
+  "No fee unless we win",
   "Same attorney, one-on-one",
-  "Available 24/7",
-  "Free, private consultation",
+  "Habla Español",
+  "Free initial consultation",
 ];
 
 async function CurrentYear() {
@@ -48,7 +49,7 @@ export default function Home() {
   return (
     <div className="v2 min-h-screen bg-white pb-20 text-[#14213a] md:pb-0">
       <div className="hidden bg-[#d9a441] py-2 text-center text-base font-bold text-[#101c32] md:block">
-        Zero fees or costs unless you win · Free consultation · Available 24/7 · Habla Español
+        No fee unless we win · Free consultation · Habla Español
       </div>
 
       <SiteHeader />
@@ -68,7 +69,7 @@ export default function Home() {
                 Call Kottler &amp; Kottler: <a href={phoneHref} className="text-[#f0cf86] underline decoration-2 underline-offset-8">{phoneDisplay}</a>
               </p>
               <p className="mt-6 max-w-xl text-[1.3rem] leading-[1.65] text-white/90">
-                Free consultation. No fees unless we win. Speak one-on-one with an experienced attorney, any time of day or night.
+                Free consultation. No fee unless we win. Speak one-on-one with the same experienced attorney from start to finish.
               </p>
               <ul className="mt-8 grid gap-3 text-xl font-semibold sm:grid-cols-2">
                 {perks.slice(0, 4).map((p) => (
@@ -104,6 +105,7 @@ export default function Home() {
           <div className="v2-wrap flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
             <p className="text-lg font-bold tracking-[0.1em] uppercase">Proud members of</p>
             <Image src={aaajLogo} alt="American Association for Justice" className="h-16 w-auto object-contain" />
+            <Image src={caalaLogo} alt="Consumer Attorneys Association of Los Angeles" className="h-11 w-auto object-contain" />
             <Image src={forumLogo} alt="Million Dollar Advocates Forum" className="h-20 w-auto object-contain" />
           </div>
         </section>
@@ -112,10 +114,10 @@ export default function Home() {
         <section id="about" className="scroll-mt-24 py-20 lg:py-28">
           <div className="v2-wrap grid items-center gap-14 lg:grid-cols-2">
             <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[#101c32]">
-              <Image src={cityPhoto} alt="Wilshire Boulevard, Los Angeles, near our offices" fill placeholder="blur" sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src={cityPhoto} alt="Palm trees beside a building" fill placeholder="blur" sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               <div className="absolute bottom-0 left-0 bg-[#d9a441] px-7 py-5 text-[#101c32]">
                 <p className="font-serif text-5xl leading-none">1968</p>
-                <p className="text-lg font-bold">Serving injured Californians</p>
+                <p className="text-lg font-bold">Serving Southern California</p>
               </div>
             </div>
             <div>
@@ -141,7 +143,7 @@ export default function Home() {
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
                 <p className="v2-eyebrow !text-[#f0cf86]">Case results</p>
-                <h2 className="v2-h2 mt-4">Recent wins for our clients.</h2>
+                <h2 className="v2-h2 mt-4">Results for our clients.</h2>
               </div>
               <a href="#contact" className="v2-btn v2-btn-gold tracking-wide uppercase">See what your case is worth</a>
             </div>
@@ -230,7 +232,7 @@ export default function Home() {
               </p>
               <a href={phoneHref} className="v2-btn v2-btn-gold mt-9 !text-2xl"><PhoneIcon /> {phoneDisplay}</a>
               <ul className="mt-10 grid gap-4 border-t border-white/25 pt-8 text-xl">
-                {["Free, private consultation", "No fee unless we recover for you", "One-on-one with your attorney", "Habla Español"].map((t) => (
+                {["Free initial consultation", "No fee unless we win a recovery for you", "One-on-one with the same attorney", "Habla Español"].map((t) => (
                   <li key={t} className="flex items-center gap-3"><span className="text-[#f0cf86]" aria-hidden="true">✓</span>{t}</li>
                 ))}
               </ul>
@@ -258,7 +260,7 @@ export default function Home() {
       </footer>
 
       <a href={phoneHref} className="fixed right-0 bottom-0 left-0 z-50 flex min-h-[4.5rem] items-center justify-center gap-3 bg-[#d9a441] text-xl font-extrabold text-[#101c32] md:hidden">
-        <PhoneIcon /> Click to call · Available 24/7
+        <PhoneIcon /> Click to call · Free consultation
       </a>
     </div>
   );

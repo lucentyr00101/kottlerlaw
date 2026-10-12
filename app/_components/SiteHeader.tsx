@@ -23,7 +23,7 @@ export function SiteHeader() {
           <a href={phoneHref} className="hidden shrink-0 items-center gap-3 md:flex">
             <span className="grid h-12 w-12 place-items-center rounded-full bg-[#d9a441] text-[#101c32]"><PhoneIcon /></span>
             <span className="whitespace-nowrap leading-tight">
-              <span className="block text-sm font-semibold text-[#f0cf86]">Call us 24/7</span>
+              <span className="block text-sm font-semibold text-[#f0cf86]">Free consultation</span>
               <span className="block text-2xl font-extrabold">{phoneDisplay}</span>
             </span>
           </a>

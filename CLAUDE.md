@@ -14,9 +14,10 @@ Single-page marketing site for a Southern California personal injury law firm. T
 
 - **The design source is Figma Make version 3** (file key `FNu1Yi8zmbWh6E4vZd9bFt`, readable through the Figma MCP server; `src/LandingV3.tsx` is the reference). The layout was originally modeled on https://lawbrothers.com/. Follow the design closely, and don't change layout, sections or styling unless the user asks. Content and text edits are fine.
 - **No photos of the attorneys anywhere.** This is the client's request.
-- Firm facts (case results, attorneys, address, fax, FAQ answers) come from the previous site, https://kottlerpersonalinjuryattorney.com/. It blocks curl (ModSecurity); read it with a browser (`playwright-cli`).
+- **The previous site, https://kottlerpersonalinjuryattorney.com/, is the source of truth for all content.** The Figma text is unchecked and may be placeholder copy, so take facts from the old site and nowhere else. Never add a claim the old site doesn't support (e.g. "available 24/7" was Figma-only and has been removed). The old site blocks curl (ModSecurity); read it with a browser (`playwright-cli`).
+- Firm facts include case results, attorneys, memberships (AAJ, CAA-LA, Million Dollar Forum; the old site also shows a BBB seal), address with ZIP+4, fax, phone, "Habla Español" and the FAQ answers.
 - Case results use client initials and city only. Keep the advertising disclaimer next to results.
-- Unconfirmed with the client: founding year (site says 1968, the old FAQ says 1969) and the "respond within 1 hour, always within 8 hours" promise. Don't add more claims like these without flagging them.
+- Unconfirmed with the client: founding year (site says 1968, the old FAQ says 1969), the "respond within 1 hour, always within 8 hours" promise (from the old site, but possibly outdated), and whether the BBB seal is still valid. Flag claims like these instead of adding them silently.
 
 ## Code conventions
 
