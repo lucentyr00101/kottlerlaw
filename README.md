@@ -1,8 +1,22 @@
 # Kottler & Kottler
 
-Landing page for Kottler & Kottler, a Los Angeles personal injury law firm. It is a single page with a case review form that emails each inquiry to the firm through Gmail SMTP.
+Landing page for Kottler & Kottler, a boutique, family-owned personal injury law firm in Los Angeles serving Southern California since 1968. It is a single page with a case review form that emails each inquiry to the firm through Gmail SMTP.
 
-The design comes from the [Figma Make file](https://www.figma.com/make/FNu1Yi8zmbWh6E4vZd9bFt/Kottler---Kottler) (version 3, the default view).
+## Design and content sources
+
+- **Design:** the [Figma Make file](https://www.figma.com/make/FNu1Yi8zmbWh6E4vZd9bFt/Kottler---Kottler), version 3 (the default view). Its layout was modeled on [lawbrothers.com](https://lawbrothers.com/).
+- **Content:** firm details, case results, attorney names and contact information come from the firm's previous website, [kottlerpersonalinjuryattorney.com](https://kottlerpersonalinjuryattorney.com/).
+- **No attorney photos.** At the client's request, the site does not show photos of the attorneys.
+
+### Open questions for the client
+
+- Founding year: the site says 1968, but the previous site's FAQ says 1969.
+- The contact section promises a response "within 1 hour, and always within 8 hours" (from the previous site). Confirm this is still accurate.
+- Doug Kottler's previous bio was a single line. Request education and memberships if they should be listed.
+
+### Content available for future sections
+
+The previous site also has material that would need new sections: attorney credentials, six more case results, a grouped list of practice areas, and 25 FAQ answers. It blocks plain HTTP clients, so read it in a browser.
 
 ## Tech stack
 
@@ -47,6 +61,7 @@ To create an App Password:
 | `bun run build` | Create a production build. |
 | `bun run start` | Serve the production build. |
 | `bun run lint` | Run ESLint. |
+| `bunx tsc --noEmit` | Type-check the project. |
 
 ## Project structure
 
@@ -63,6 +78,14 @@ app/
 │   └── site.tsx             # Shared constants (phone, nav) and PhoneIcon
 └── assets/                  # Logo, photography, membership badges
 ```
+
+`CLAUDE.md` and `AGENTS.md` hold instructions for AI coding agents working in this repo. `AGENTS.md` is maintained by `next dev`; don't edit its managed block by hand.
+
+## Styling notes
+
+- Tailwind CSS 4 utilities, plus a few shared classes (`.v2-btn`, `.v2-label`, `.v2-h2`, …) in `app/globals.css`. Those classes must stay inside `@layer base` or `@layer components`, or they will override Tailwind's responsive utilities.
+- Fonts: DM Sans (body) and Libre Caslon Display (headings), loaded with `next/font`.
+- Images are static imports rendered with `next/image`.
 
 ## Contact form
 
