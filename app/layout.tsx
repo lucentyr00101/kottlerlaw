@@ -15,9 +15,9 @@ const libreCaslon = Libre_Caslon_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Kottler & Kottler | Los Angeles Personal Injury Attorneys",
+  title: "Kottler & Kottler | Southern California Personal Injury Attorneys",
   description:
-    "Los Angeles personal injury attorneys since 1968. Free consultation, no fees unless we win. Call 888-300-2266, available 24/7.",
+    "Boutique, family-owned Los Angeles personal injury firm serving Southern California since 1968. Free consultation, no fees unless we win. Habla Español. Call 888-300-2266.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

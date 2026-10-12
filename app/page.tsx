@@ -9,10 +9,10 @@ import { SiteHeader } from "./_components/SiteHeader";
 import { phoneDisplay, phoneHref, PhoneIcon } from "./_components/site";
 
 const wins = [
-  { amount: "$40.5M", type: "Insurance Bad Faith", note: "Jury verdict. Insurer offered $0." },
-  { amount: "$22M", type: "Auto Accident", note: "Jury verdict. Insurer offered $100K." },
-  { amount: "$4.5M", type: "Truck Accident", note: "Settlement for our client." },
-  { amount: "$3.7M", type: "Apartment Fire", note: "Burn injury jury verdict." },
+  { amount: "$40.5M", type: "Insurance Bad Faith", note: "Jury verdict for F.F. of Los Angeles. Insurer offered $0." },
+  { amount: "$22M", type: "Auto Accident", note: "Jury verdict for D.C. of San Bernardino. Insurer offered $100K." },
+  { amount: "$4.5M", type: "Truck Accident", note: "Settlement for H.P. of Montebello." },
+  { amount: "$3.7M", type: "Apartment Fire", note: "Burn injury jury verdict for E.B. of Los Angeles. Insurer offered $0." },
 ];
 
 const areas = [
@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <div className="v2 min-h-screen bg-white pb-20 text-[#14213a] md:pb-0">
       <div className="hidden bg-[#d9a441] py-2 text-center text-base font-bold text-[#101c32] md:block">
-        Zero fees or costs unless you win · Free consultation · Available 24/7
+        Zero fees or costs unless you win · Free consultation · Available 24/7 · Habla Español
       </div>
 
       <SiteHeader />
@@ -60,7 +60,7 @@ export default function Home() {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(10,20,38,.97)_0%,rgba(10,20,38,.9)_55%,rgba(10,20,38,.7)_100%)]" />
           <div className="v2-wrap grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
             <div>
-              <p className="text-lg font-bold tracking-[0.1em] text-[#f0cf86] uppercase">Los Angeles Personal Injury Attorneys · Since 1968</p>
+              <p className="text-lg font-bold tracking-[0.1em] text-[#f0cf86] uppercase">Southern California Personal Injury Attorneys · Since 1968</p>
               <h1 className="mt-5 text-[clamp(3.2rem,7vw,6.2rem)] leading-[0.95] font-extrabold tracking-tight uppercase">
                 Your case.<br /><span className="font-serif font-normal text-[#f0cf86] normal-case">Our priority.</span>
               </h1>
@@ -119,13 +119,13 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <p className="v2-eyebrow">Dedicated personal injury service</p>
+              <p className="v2-eyebrow">Boutique, family-owned law firm</p>
               <h2 className="v2-h2 mt-4">Big-firm strength. Personal attention.</h2>
               <p className="v2-body mt-6">
-                Your case will not be passed from person to person. At Kottler &amp; Kottler you speak one-on-one with the same attorney who knows your story and is invested in your outcome.
+                Kottler &amp; Kottler is a family-owned and operated personal injury firm that has always limited its practice to representing seriously injured people and their families in and around Southern California. Because we carefully select our cases, you get one-on-one communication with the same attorney, every step of the way.
               </p>
               <p className="v2-body mt-5">
-                We prepare every case with care, bring decades of courtroom experience, and stand ready to take on insurers that undervalue what you have lost.
+                Attorneys Donald Kottler, Douglas E. Kottler and Shari S. Daneshrad are well respected in legal circles, and the Kottlers have appeared on national programs such as &ldquo;The Today Show.&rdquo; Most of our clients are repeat clients or referrals from other clients, and we prepare every case to its maximum potential.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <a href="#contact" className="v2-btn v2-btn-navy tracking-wide uppercase">Get a free case review</a>
@@ -155,7 +155,7 @@ export default function Home() {
               ))}
             </div>
             <p className="mt-8 max-w-4xl text-base leading-relaxed text-white/75">
-              Prior results do not guarantee a similar outcome. Every case is different.
+              Prior results do not guarantee a similar outcome. Every case is different. This advertisement may contain a testimonial or endorsement which does not constitute a guarantee, warranty, or prediction regarding the outcome of your legal matter.
             </p>
           </div>
         </section>
@@ -226,17 +226,17 @@ export default function Home() {
               <p className="v2-eyebrow !text-[#f0cf86]">Free consultation</p>
               <h2 className="v2-h2 mt-4">Injured? Don&apos;t wait. Call us today.</h2>
               <p className="mt-6 max-w-lg text-[1.25rem] leading-[1.65] text-white/90">
-                Every day matters after an injury. Tell us what happened and we will explain your options at no cost to you.
+                Every day matters after an injury. Tell us what happened and we will explain your options at no cost to you. We usually respond within 1 hour, and always within 8 hours.
               </p>
               <a href={phoneHref} className="v2-btn v2-btn-gold mt-9 !text-2xl"><PhoneIcon /> {phoneDisplay}</a>
               <ul className="mt-10 grid gap-4 border-t border-white/25 pt-8 text-xl">
-                {["Free, private consultation", "No fee unless we recover for you", "One-on-one with your attorney"].map((t) => (
+                {["Free, private consultation", "No fee unless we recover for you", "One-on-one with your attorney", "Habla Español"].map((t) => (
                   <li key={t} className="flex items-center gap-3"><span className="text-[#f0cf86]" aria-hidden="true">✓</span>{t}</li>
                 ))}
               </ul>
               <address className="mt-10 text-[1.15rem] leading-relaxed not-italic text-white/90">
                 <strong className="block text-white">Visit our Los Angeles office</strong>
-                6420 Wilshire Boulevard, Suite 2000 Penthouse<br />Los Angeles, CA 90048
+                6420 Wilshire Boulevard, Suite 2000 Penthouse<br />Los Angeles, CA 90048-5562<br />Fax: 213-387-2889
               </address>
             </div>
             <LeadForm id="contact-form" title="Get your free case review" />
@@ -248,7 +248,7 @@ export default function Home() {
         <div className="v2-wrap flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <Image src={logo} alt="Kottler & Kottler Attorneys at Law" className="h-20 w-auto brightness-0 invert" />
-            <p className="mt-5 text-lg leading-relaxed text-white/85">6420 Wilshire Boulevard, Suite 2000 Penthouse<br />Los Angeles, CA 90048</p>
+            <p className="mt-5 text-lg leading-relaxed text-white/85">6420 Wilshire Boulevard, Suite 2000 Penthouse<br />Los Angeles, CA 90048-5562<br />Fax: 213-387-2889</p>
           </div>
           <div className="md:text-right">
             <a href={phoneHref} className="font-serif text-3xl text-[#f0cf86]">{phoneDisplay}</a>
