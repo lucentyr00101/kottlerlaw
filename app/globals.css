@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-serif: var(--font-libre-caslon), serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: #f4f0e8;
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+/* ---- Large, high-contrast, readable ---- */
+@layer components {
+  .v2 {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .v2 ::selection {
+    background: #f0cf86;
+    color: #101c32;
+  }
+
+  .v2 a:focus-visible,
+  .v2 button:focus-visible,
+  .v2 input:focus-visible,
+  .v2 textarea:focus-visible {
+    outline: 4px solid #1f5fd1;
+    outline-offset: 3px;
+  }
+
+  .v2-wrap {
+    width: min(100% - 2.5rem, 78rem);
+    margin-inline: auto;
+  }
+
+  .v2-eyebrow {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7a520c;
+  }
+
+  .v2-h2 {
+    font-family: var(--font-libre-caslon), serif;
+    font-size: clamp(2.5rem, 4.6vw, 4.2rem);
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+  }
+
+  .v2-body {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #2b3750;
+  }
+
+  .v2-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3.75rem;
+    border-radius: 0.25rem;
+    padding: 0.9rem 1.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .v2-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .v2-btn-gold {
+    background: #d9a441;
+    color: #101c32;
+  }
+
+  .v2-btn-gold:hover {
+    background: #ecc067;
+  }
+
+  .v2-btn-navy {
+    background: #14213a;
+    color: #fff;
+  }
+
+  .v2-btn-navy:hover {
+    background: #26395e;
+  }
+
+  .v2-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .v2-label input,
+  .v2-label textarea {
+    width: 100%;
+    border: 2px solid #6d7688;
+    border-radius: 0.25rem;
+    background: #fff;
+    padding: 0.85rem 1rem;
+    color: #14213a;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .v2-label input:focus,
+  .v2-label textarea:focus {
+    border-color: #14213a;
+  }
+
+  .v2-label input[aria-invalid="true"],
+  .v2-label textarea[aria-invalid="true"] {
+    border-color: #b42318;
+  }
+
+  .v2-error {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b42318;
+  }
 }
