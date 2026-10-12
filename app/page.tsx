@@ -247,7 +247,7 @@ export default function Home() {
       <footer className="bg-[#0a1425] py-12 text-white">
         <div className="v2-wrap flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <Image src={logo} alt="Kottler & Kottler Attorneys at Law" className="h-14 w-auto brightness-0 invert" />
+            <Image src={logo} alt="Kottler & Kottler Attorneys at Law" className="h-20 w-auto brightness-0 invert" />
             <p className="mt-5 text-lg leading-relaxed text-white/85">6420 Wilshire Boulevard, Suite 2000 Penthouse<br />Los Angeles, CA 90048</p>
           </div>
           <div className="md:text-right">
