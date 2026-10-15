@@ -5,7 +5,9 @@ Landing page for Kottler & Kottler, a boutique, family-owned personal injury law
 ## Design and content sources
 
 - **Design:** the [Figma Make file](https://www.figma.com/make/FNu1Yi8zmbWh6E4vZd9bFt/Kottler---Kottler), version 3 (the default view). Its layout was modeled on [lawbrothers.com](https://lawbrothers.com/). The Figma text was never checked and may be placeholder copy, so use it for layout only.
-- **Content (source of truth):** the firm's previous website, [kottlerpersonalinjuryattorney.com](https://kottlerpersonalinjuryattorney.com/). Every firm fact on the page (case results, attorneys, memberships, address, fax, phone, languages) must be traceable to it.
+- **Content (source of truth):** the firm's previous website, [kottlerpersonalinjuryattorney.com](https://kottlerpersonalinjuryattorney.com/). Every firm fact on the page (case results, attorneys, memberships, address, fax, phone, languages) must be traceable to it, unless the client has since changed it.
+- **Client changes (Oct 2026):** no longer a Million Dollar Advocates Forum member; BBB seal added; address drops "Suite 2000" (now "Penthouse"); "Available 24/7" added back; the About photo is the firm's own conference room.
+- **Practice area photos** are CC0 / public domain, found through [Openverse](https://openverse.org): car accident and dog bite from rawpixel, truck and pedestrian from StockSnap, slip-and-fall and wrongful death from the WordPress Photo Directory.
 - **No attorney photos.** At the client's request, the site does not show photos of the attorneys.
 
 ### Open questions for the client
@@ -13,8 +15,8 @@ Landing page for Kottler & Kottler, a boutique, family-owned personal injury law
 - Founding year: the site says 1968, but the previous site's FAQ says 1969.
 - The contact section promises a response "within 1 hour, and always within 8 hours" (from the previous site). Confirm this is still accurate.
 - Doug Kottler's previous bio was a single line. Request education and memberships if they should be listed.
-- The previous site shows a BBB seal. Confirm the accreditation is current before adding it.
-- Hours: the Figma design said "available 24/7", but the previous site never claims this, so it was removed. Add it back only if the client confirms.
+- Reviews are hardcoded in `app/page.tsx`, copied word for word from Google and Yelp in Oct 2026. Update the ratings and counts there from time to time. The Yelp link is a Yelp search, because we don't have the business page URL yet.
+- The BBB seal is cropped from the previous site's 2014 badge. Replace it with the current seal from the firm's BBB business profile.
 
 ### Content available for future sections
 
