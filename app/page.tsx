@@ -4,7 +4,14 @@ import cityPhoto from "@/app/assets/la-building.jpg";
 import logo from "@/app/assets/kottler-logo.png";
 import aaajLogo from "@/app/assets/membership-aaaj.jpg";
 import caalaLogo from "@/app/assets/membership-caala.png";
-import forumLogo from "@/app/assets/membership-forum.png";
+import bbbLogo from "@/app/assets/membership-bbb.png";
+import officePhoto from "@/app/assets/office-conference-room.jpg";
+import carAccidentPhoto from "@/app/assets/practice-car-accident.jpg";
+import dogBitePhoto from "@/app/assets/practice-dog-bite.jpg";
+import pedestrianPhoto from "@/app/assets/practice-pedestrian-accident.jpg";
+import slipFallPhoto from "@/app/assets/practice-slip-and-fall.jpg";
+import truckAccidentPhoto from "@/app/assets/practice-truck-accident.jpg";
+import wrongfulDeathPhoto from "@/app/assets/practice-wrongful-death.jpg";
 import { LeadForm } from "./_components/LeadForm";
 import { SiteHeader } from "./_components/SiteHeader";
 import { phoneDisplay, phoneHref, PhoneIcon } from "./_components/site";
@@ -16,13 +23,52 @@ const wins = [
   { amount: "$3.7M", type: "Apartment Fire", note: "Burn injury jury verdict for E.B. of Los Angeles. Insurer offered $0." },
 ];
 
+// Verbatim from the firm's Google and Yelp listings (Oct 2026). "…" marks trimmed text.
+const reviewSources = [
+  { name: "Google", rating: "4.2", count: 42, href: "https://www.google.com/maps/search/Kottler+%26+Kottler+6420+Wilshire+Blvd+Los+Angeles" },
+  { name: "Yelp", rating: "4.5", count: 71, href: "https://www.yelp.com/search?find_desc=Kottler+%26+Kottler&find_loc=Los+Angeles%2C+CA" },
+];
+
+const reviews = [
+  {
+    name: "Naz N.",
+    source: "Yelp",
+    text: "From the very beginning, Cathy was incredibly helpful, compassionate, and attentive throughout the entire process. She always kept us informed and was available whenever we had questions. … We are extremely happy with the outcome of my mother's case, especially the settlement and the excellent job they did negotiating the medical liens.",
+  },
+  {
+    name: "James S.",
+    source: "Google",
+    text: "This law firm was handling a claim for my estranged father. He unfortunately passed away during the process and this firm hired a PI who tracked me down. … For a firm to do this for a smaller payout speaks volumes about their integrity.",
+  },
+  {
+    name: "Giannina T.",
+    source: "Yelp",
+    text: "Attorney Douglas Kottler also checked in with me personally from time to time, which gave me confidence that my case and well-being truly mattered to them. … I found them to be honest, knowledgeable, dedicated, and truly committed to helping people in need.",
+  },
+  {
+    name: "Stephanie V.",
+    source: "Google",
+    text: "Last year I was hit while at a stop and knew that K&K was who I needed to reach out to, even with me now living in AZ. I worked with Cathy Gomez & team, they were absolutely incredible to work with. Very responsive to emails, calls and always kind and professional.",
+  },
+  {
+    name: "Roger T.",
+    source: "Yelp",
+    text: "I was able to seek treatment for my medical needs without any anxiety. Throughout the process I felt that Kottler and Kottler had my best interest. … It's a relief to know you are in good hands. I had a team of attorneys on my side.",
+  },
+  {
+    name: "Jessica M.",
+    source: "Google",
+    text: "So satisfied with Kottler and Kottler! They took on my case November 2024, Cathy Gomez was on top of it! Always communicating with me via phone and email! Let me know all the details and talked me through everything, answered all my questions.",
+  },
+];
+
 const areas = [
-  { name: "Car Accidents", pos: "12% 30%" },
-  { name: "Truck Accidents", pos: "80% 20%" },
-  { name: "Pedestrian Accidents", pos: "45% 75%" },
-  { name: "Slip & Fall", pos: "95% 80%" },
-  { name: "Wrongful Death", pos: "5% 90%" },
-  { name: "Dog Bites", pos: "60% 10%" },
+  { name: "Car Accidents", photo: carAccidentPhoto },
+  { name: "Truck Accidents", photo: truckAccidentPhoto },
+  { name: "Pedestrian Accidents", photo: pedestrianPhoto },
+  { name: "Slip & Fall", photo: slipFallPhoto },
+  { name: "Wrongful Death", photo: wrongfulDeathPhoto },
+  { name: "Dog Bites", photo: dogBitePhoto },
 ];
 
 const steps = [
@@ -49,7 +95,7 @@ export default function Home() {
   return (
     <div className="v2 min-h-screen bg-white pb-20 text-[#14213a] md:pb-0">
       <div className="hidden bg-[#d9a441] py-2 text-center text-base font-bold text-[#101c32] md:block">
-        No fee unless we win · Free consultation · Habla Español
+        No fee unless we win · Free consultation · Available 24/7 · Habla Español
       </div>
 
       <SiteHeader />
@@ -106,7 +152,7 @@ export default function Home() {
             <p className="text-lg font-bold tracking-[0.1em] uppercase">Proud members of</p>
             <Image src={aaajLogo} alt="American Association for Justice" className="h-16 w-auto object-contain" />
             <Image src={caalaLogo} alt="Consumer Attorneys Association of Los Angeles" className="h-11 w-auto object-contain" />
-            <Image src={forumLogo} alt="Million Dollar Advocates Forum" className="h-20 w-auto object-contain" />
+            <Image src={bbbLogo} alt="BBB Accredited Business" className="h-20 w-auto object-contain" />
           </div>
         </section>
 
@@ -114,7 +160,7 @@ export default function Home() {
         <section id="about" className="scroll-mt-24 py-20 lg:py-28">
           <div className="v2-wrap grid items-center gap-14 lg:grid-cols-2">
             <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[#101c32]">
-              <Image src={cityPhoto} alt="Palm trees beside a building" fill placeholder="blur" sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src={officePhoto} alt="Conference room at the Kottler & Kottler office overlooking Los Angeles" fill placeholder="blur" sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               <div className="absolute bottom-0 left-0 bg-[#d9a441] px-7 py-5 text-[#101c32]">
                 <p className="font-serif text-5xl leading-none">1968</p>
                 <p className="text-lg font-bold">Serving Southern California</p>
@@ -162,6 +208,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* REVIEWS */}
+        <section id="reviews" className="scroll-mt-24 bg-[#f6f2e9] py-20 lg:py-28">
+          <div className="v2-wrap">
+            <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+              <div>
+                <p className="v2-eyebrow">Client reviews</p>
+                <h2 className="v2-h2 mt-4">What our clients say.</h2>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                {reviewSources.map((s) => (
+                  <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-sm border-2 border-[#14213a] bg-white px-5 py-3 transition hover:-translate-y-px">
+                    <span className="font-serif text-4xl leading-none"><span className="text-[#d9a441]" aria-hidden="true">★</span> {s.rating}</span>
+                    <span className="text-base leading-snug">
+                      <span className="block font-bold">{s.name} rating</span>{s.count} reviews
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {reviews.map((r) => (
+                <figure key={r.name} className="flex flex-col rounded-sm border-t-4 border-[#d9a441] bg-white p-7 shadow-sm">
+                  <p className="text-xl tracking-[0.15em] text-[#d9a441]" role="img" aria-label="5 out of 5 stars">★★★★★</p>
+                  <blockquote className="mt-4 flex-1 text-[1.1rem] leading-[1.65] text-[#2b3750]">&ldquo;{r.text}&rdquo;</blockquote>
+                  <figcaption className="mt-6 flex items-center justify-between gap-3 border-t border-[#14213a]/15 pt-4">
+                    <span className="text-lg font-bold">{r.name}</span>
+                    <span className="text-sm font-semibold tracking-wide text-[#2b3750]/80 uppercase">{r.source} review</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="mt-8 max-w-4xl text-base leading-relaxed text-[#2b3750]/80">
+              Reviews are quoted as written on Google and Yelp; some are shortened, marked with &ldquo;…&rdquo;. Testimonials do not constitute a guarantee, warranty, or prediction regarding the outcome of your legal matter.
+            </p>
+          </div>
+        </section>
+
         {/* PRACTICE AREAS */}
         <section id="practice" className="scroll-mt-24 py-20 lg:py-28">
           <div className="v2-wrap">
@@ -171,14 +254,14 @@ export default function Home() {
               {areas.map((a) => (
                 <a key={a.name} href="#contact" className="group relative isolate flex min-h-72 flex-col justify-end overflow-hidden rounded-sm bg-[#101c32] p-7 text-white">
                   <Image
-                    src={cityPhoto}
+                    src={a.photo}
                     alt=""
                     fill
-                    sizes="(min-width: 1024px) 66vw, (min-width: 640px) 100vw, 200vw"
-                    style={{ objectPosition: a.pos }}
-                    className="-z-20 scale-[2] object-cover transition duration-500 group-hover:scale-[2.2]"
+                    placeholder="blur"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="-z-20 object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(16,28,50,.45)_0%,rgba(16,28,50,.95)_85%)]" />
+                  <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(16,28,50,.15)_0%,rgba(16,28,50,.55)_45%,rgba(16,28,50,.95)_90%)]" />
                   <h3 className="text-[1.9rem] leading-tight font-extrabold tracking-tight uppercase">{a.name}</h3>
                   <span className="mt-4 inline-flex w-fit items-center gap-2 border-b-2 border-[#d9a441] pb-1 text-lg font-bold text-[#f0cf86]">Get started →</span>
                 </a>
@@ -194,14 +277,16 @@ export default function Home() {
             <h2 className="v2-h2 mt-4">Three easy steps to get started.</h2>
             <ol className="mt-12 grid gap-6 md:grid-cols-3">
               {steps.map((s, i) => (
-                <li key={s.t} className="rounded-sm bg-white p-8 shadow-sm">
-                  <span className="grid h-16 w-16 place-items-center rounded-full bg-[#101c32] font-serif text-4xl text-[#f0cf86]">{i + 1}</span>
+                <li key={s.t} className="rounded-sm bg-white p-8 text-center shadow-sm">
+                  <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#101c32] font-serif text-4xl text-[#f0cf86]">{i + 1}</span>
                   <h3 className="mt-6 text-[1.6rem] leading-snug font-extrabold uppercase">{s.t}</h3>
                   <p className="mt-3 text-[1.15rem] leading-[1.6] text-[#2b3750]">{s.d}</p>
                 </li>
               ))}
             </ol>
-            <a href="#contact" className="v2-btn v2-btn-navy mt-10 tracking-wide uppercase">Get started</a>
+            <div className="mt-10 flex justify-center">
+              <a href="#contact" className="v2-btn v2-btn-navy w-full tracking-wide uppercase sm:w-auto sm:min-w-[24rem]">Get started</a>
+            </div>
           </div>
         </section>
 
@@ -232,13 +317,13 @@ export default function Home() {
               </p>
               <a href={phoneHref} className="v2-btn v2-btn-gold mt-9 !text-2xl"><PhoneIcon /> {phoneDisplay}</a>
               <ul className="mt-10 grid gap-4 border-t border-white/25 pt-8 text-xl">
-                {["Free initial consultation", "No fee unless we win a recovery for you", "One-on-one with the same attorney", "Habla Español"].map((t) => (
+                {["Free initial consultation", "No fee unless we win a recovery for you", "One-on-one with the same attorney", "Available 24/7", "Habla Español"].map((t) => (
                   <li key={t} className="flex items-center gap-3"><span className="text-[#f0cf86]" aria-hidden="true">✓</span>{t}</li>
                 ))}
               </ul>
               <address className="mt-10 text-[1.15rem] leading-relaxed not-italic text-white/90">
                 <strong className="block text-white">Visit our Los Angeles office</strong>
-                6420 Wilshire Boulevard, Suite 2000 Penthouse<br />Los Angeles, CA 90048-5562<br />Fax: 213-387-2889
+                6420 Wilshire Boulevard, Penthouse<br />Los Angeles, CA 90048-5562<br />Fax: 213-387-2889
               </address>
             </div>
             <LeadForm id="contact-form" title="Get your free case review" />
@@ -250,7 +335,7 @@ export default function Home() {
         <div className="v2-wrap flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <Image src={logo} alt="Kottler & Kottler Attorneys at Law" className="h-20 w-auto brightness-0 invert" />
-            <p className="mt-5 text-lg leading-relaxed text-white/85">6420 Wilshire Boulevard, Suite 2000 Penthouse<br />Los Angeles, CA 90048-5562<br />Fax: 213-387-2889</p>
+            <p className="mt-5 text-lg leading-relaxed text-white/85">6420 Wilshire Boulevard, Penthouse<br />Los Angeles, CA 90048-5562<br />Fax: 213-387-2889</p>
           </div>
           <div className="md:text-right">
             <a href={phoneHref} className="font-serif text-3xl text-[#f0cf86]">{phoneDisplay}</a>
