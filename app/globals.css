@@ -150,6 +150,72 @@
     border-color: #b42318;
   }
 
+  /* Case results: stacked items in each slot fade in turn. An item shows for 3s; the cycle is 3s × items. */
+  .v2-flash > li {
+    grid-area: 1 / 1;
+    opacity: 0;
+  }
+
+  .v2-flash-3 {
+    animation: v2-flash-3 9s linear infinite backwards;
+  }
+
+  .v2-flash-4 {
+    animation: v2-flash-4 12s linear infinite backwards;
+  }
+
+  .v2-flash:hover > li,
+  .v2-flash:focus-within > li,
+  #results:has(#pause-results:checked) .v2-flash > li {
+    animation-play-state: paused;
+  }
+
+  .v2-flash-toggle:has(input:focus-visible) {
+    outline: 2px solid #f0cf86;
+    outline-offset: 3px;
+  }
+
+  /* Pause bars; switches to a play triangle while paused. */
+  .v2-flash-icon {
+    width: 0.75rem;
+    height: 0.9rem;
+    border-inline: 0.25rem solid #f0cf86;
+  }
+
+  .v2-flash-play,
+  .v2-flash-toggle:has(input:checked) .v2-flash-pause {
+    display: none;
+  }
+
+  .v2-flash-toggle:has(input:checked) .v2-flash-play {
+    display: inline;
+  }
+
+  .v2-flash-toggle:has(input:checked) .v2-flash-icon {
+    width: 0;
+    border-inline-width: 0.75rem 0;
+    border-block: 0.45rem solid transparent;
+    height: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .v2-flash > li {
+      grid-area: auto;
+      opacity: 1;
+      animation: none;
+    }
+  }
+
+  @keyframes v2-flash-3 {
+    0%, 33.4%, 100% { opacity: 0; }
+    4%, 29% { opacity: 1; }
+  }
+
+  @keyframes v2-flash-4 {
+    0%, 25%, 100% { opacity: 0; }
+    3%, 22% { opacity: 1; }
+  }
+
   .v2-error {
     font-size: 1rem;
     font-weight: 600;

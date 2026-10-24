@@ -17,10 +17,30 @@ import { SiteHeader } from "./_components/SiteHeader";
 import { phoneDisplay, phoneHref, PhoneIcon } from "./_components/site";
 
 const wins = [
-  { amount: "$40.5M", type: "Insurance Bad Faith", note: "Jury verdict for F.F. of Los Angeles. Insurer offered $0." },
-  { amount: "$22M", type: "Auto Accident", note: "Jury verdict for D.C. of San Bernardino. Insurer offered $100K." },
-  { amount: "$4.5M", type: "Truck Accident", note: "Settlement for H.P. of Montebello." },
-  { amount: "$3.7M", type: "Apartment Fire", note: "Burn injury jury verdict for E.B. of Los Angeles. Insurer offered $0." },
+  { amount: "$40,500,000", type: "Insurance bad faith" },
+  { amount: "$22,000,000", type: "Auto accident" },
+  { amount: "$4,500,000", type: "Truck accident" },
+  { amount: "$3,700,000", type: "Apartment fire" },
+  { amount: "$1,900,000", type: "Auto accident" },
+  { amount: "$1,451,000", type: "Drunk driver auto accident" },
+  { amount: "$1,301,000", type: "Auto accident" },
+  { amount: "$1,050,000", type: "Bicycle vs. auto" },
+  { amount: "$1,000,000", type: "Assault" },
+  { amount: "$1,000,000", type: "Premises liability" },
+  { amount: "$1,000,000", type: "Rideshare passenger" },
+  { amount: "$1,000,000", type: "Rideshare" },
+  { amount: "$900,000", type: "Auto accident" },
+  { amount: "$810,000", type: "Auto accident" },
+];
+
+// Four slots, each fading through its share of results (see .v2-flash in globals.css). Grouped so the
+// $1,000,000 results don't all show at once.
+const winSlots = [[0, 4, 8, 12], [1, 9, 5, 13], [2, 6, 10], [3, 11, 7]].map((slot) => slot.map((i) => wins[i]));
+
+const reasons = [
+  { t: "Dedicated", d: "We are not afraid to fight on behalf of our clients. Our winning attitude and unfailing dedication gives our clients an advantage right from the start, every time." },
+  { t: "Experienced", d: "Serving California since 1968. Our experienced attorneys will advocate for your maximum recovery." },
+  { t: "Trusted", d: "Most of our clients are repeat customers or are referrals from other clients." },
 ];
 
 // Verbatim from the firm's Google and Yelp listings (Oct 2026). "…" marks trimmed text.
@@ -72,9 +92,9 @@ const areas = [
 ];
 
 const steps = [
-  { t: "Contact us", d: "Call us or fill out the form. The consultation is free." },
-  { t: "Tell us about your case", d: "Share what happened. We listen and explain your options in plain English." },
-  { t: "We get to work", d: "Your attorney handles the evidence and the insurance company while you recover." },
+  { t: "Contact us", d: "Call us or complete the form anytime—we’re available 24/7 and ready to help. Habla Español." },
+  { t: "Tell us about your case", d: "Share what happened. We’ll help you understand your options and take the next step with confidence." },
+  { t: "We get to work", d: "Focus on your recovery while we handle your case and fight for the maximum recovery you deserve." },
 ];
 
 const perks = [
@@ -107,15 +127,16 @@ export default function Home() {
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgba(10,20,38,.97)_0%,rgba(10,20,38,.9)_55%,rgba(10,20,38,.7)_100%)]" />
           <div className="v2-wrap grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
             <div>
-              <p className="text-lg font-bold tracking-[0.1em] text-[#f0cf86] uppercase">Southern California Personal Injury Attorneys · Since 1968</p>
-              <h1 className="mt-5 text-[clamp(3.2rem,7vw,6.2rem)] leading-[0.95] font-extrabold tracking-tight uppercase">
-                Your case.<br /><span className="font-serif font-normal text-[#f0cf86] normal-case">Our priority.</span>
-              </h1>
-              <p className="mt-8 text-[clamp(1.6rem,2.6vw,2.2rem)] font-bold">
-                Call Kottler &amp; Kottler: <a href={phoneHref} className="text-[#f0cf86] underline decoration-2 underline-offset-8">{phoneDisplay}</a>
+              <p className="text-[clamp(0.8rem,1.15vw,1.125rem)] font-bold tracking-[0.06em] text-[#f0cf86] uppercase lg:whitespace-nowrap">Southern California Personal Injury Attorneys · Since 1968</p>
+              <p className="mt-5 font-extrabold tracking-tight uppercase">
+                <span className="block text-[clamp(1.9rem,3.2vw,2.9rem)] leading-tight">Call <span className="whitespace-nowrap">Kottler &amp; Kottler</span></span>
+                <a href={phoneHref} className="mt-1 inline-block font-serif text-[clamp(3rem,6.2vw,5.6rem)] leading-none font-normal tracking-normal whitespace-nowrap text-[#f0cf86] underline decoration-2 underline-offset-8">{phoneDisplay}</a>
               </p>
+              <h1 className="mt-7 text-[clamp(1.6rem,2.6vw,2.2rem)] leading-tight font-bold">
+                Your case. <span className="font-serif font-normal text-[#f0cf86]">Our priority.</span>
+              </h1>
               <p className="mt-6 max-w-xl text-[1.3rem] leading-[1.65] text-white/90">
-                Free consultation. No fee unless we win. Speak one-on-one with the same experienced attorney from start to finish.
+                Free consultation. Available 24/7. No fee unless we win. Speak one-on-one with the same experienced attorney from start to finish.
               </p>
               <ul className="mt-8 grid gap-3 text-xl font-semibold sm:grid-cols-2">
                 {perks.slice(0, 4).map((p) => (
@@ -123,23 +144,24 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <LeadForm id="hero-form" title="Get your free case review" />
+            <LeadForm id="hero-form" title="Get your free case consultation" />
           </div>
         </section>
 
-        {/* STAT BAND */}
+        {/* WHY CHOOSE US */}
         <section className="bg-[#d9a441] text-[#101c32]">
-          <div className="v2-wrap grid gap-8 py-12 lg:grid-cols-[1.1fr_2fr] lg:items-center">
+          <div className="v2-wrap grid gap-10 py-14 lg:grid-cols-[1.1fr_2fr] lg:items-center">
             <div>
-              <p className="text-lg font-bold tracking-[0.1em] uppercase">Landmark verdict</p>
-              <p className="font-serif text-[clamp(4.5rem,9vw,8rem)] leading-none">$40.5M</p>
-              <p className="mt-2 text-xl font-semibold">Against an insurer that offered $0.</p>
+              <h2 className="text-[clamp(2rem,3.2vw,2.75rem)] leading-tight font-extrabold tracking-tight text-balance">Why choose Kottler &amp; Kottler?</h2>
+              <p className="mt-5 text-[1.15rem] leading-[1.65] font-medium">
+                In the blink of an eye, an accident caused by someone else&apos;s negligence can change your life in countless ways. How will you pay your bills? Who will cover your medical costs? What are your rights? For answers to your questions, you can turn to the experienced personal injury attorneys of Kottler &amp; Kottler.
+              </p>
             </div>
-            <div className="grid grid-cols-2 gap-px bg-[#101c32]/25 md:grid-cols-3">
-              {[["$22M", "Auto accident verdict"], ["$4.5M", "Truck accident settlement"], ["$3.7M", "Apartment fire verdict"]].map(([a, l]) => (
-                <div key={a} className="bg-[#d9a441] p-5 first:col-span-2 md:first:col-span-1">
-                  <p className="font-serif text-5xl">{a}</p>
-                  <p className="mt-2 text-lg leading-snug font-semibold">{l}</p>
+            <div className="grid gap-px bg-[#101c32]/25 md:grid-cols-3">
+              {reasons.map((r) => (
+                <div key={r.t} className="bg-[#d9a441] p-6">
+                  <h3 className="font-serif text-[2.6rem] leading-none">{r.t}</h3>
+                  <p className="mt-4 text-lg leading-snug font-semibold">{r.d}</p>
                 </div>
               ))}
             </div>
@@ -175,9 +197,9 @@ export default function Home() {
               <p className="v2-body mt-5">
                 Attorneys Donald Kottler, Douglas E. Kottler and Shari S. Daneshrad are well respected in legal circles, and the Kottlers have appeared on national programs such as &ldquo;The Today Show.&rdquo; Most of our clients are repeat clients or referrals from other clients, and we prepare every case to its maximum potential.
               </p>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="#contact" className="v2-btn v2-btn-navy tracking-wide uppercase">Get a free case review</a>
-                <a href={phoneHref} className="v2-btn border-2 border-[#14213a]"><PhoneIcon /> {phoneDisplay}</a>
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <a href="#contact" className="v2-btn v2-btn-navy tracking-wide whitespace-nowrap uppercase sm:grow">Free case consultation</a>
+                <a href={phoneHref} className="v2-btn border-2 border-[#14213a] whitespace-nowrap sm:grow"><PhoneIcon /> {phoneDisplay}</a>
               </div>
             </div>
           </div>
@@ -191,15 +213,27 @@ export default function Home() {
                 <p className="v2-eyebrow !text-[#f0cf86]">Case results</p>
                 <h2 className="v2-h2 mt-4">Results for our clients.</h2>
               </div>
-              <a href="#contact" className="v2-btn v2-btn-gold tracking-wide uppercase">See what your case is worth</a>
+              <label className="v2-flash-toggle inline-flex min-h-11 w-fit cursor-pointer items-center gap-3 rounded-sm border-2 border-white/40 px-4 text-base font-bold motion-reduce:hidden">
+                <input type="checkbox" id="pause-results" className="sr-only" />
+                <span aria-hidden="true" className="v2-flash-icon" />
+                <span className="v2-flash-pause">Pause results</span>
+                <span className="v2-flash-play">Play results</span>
+              </label>
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {wins.map((w) => (
-                <div key={w.amount} className="border-t-4 border-[#d9a441] bg-white/[0.07] p-7">
-                  <p className="font-serif text-6xl leading-none text-[#f0cf86]">{w.amount}</p>
-                  <p className="mt-5 text-xl font-bold tracking-wide uppercase">{w.type}</p>
-                  <p className="mt-2 text-lg leading-snug text-white/85">{w.note}</p>
-                </div>
+              {winSlots.map((slot, s) => (
+                <ul key={s} className="v2-flash @container grid border-t-4 border-[#d9a441] bg-white/[0.07]">
+                  {slot.map((w, i) => (
+                    <li
+                      key={i}
+                      className={`p-7 v2-flash-${slot.length}`}
+                      style={{ animationDelay: `${i * 3 - s * 0.75}s` }}
+                    >
+                      <p className="font-serif text-[min(3rem,calc(17cqi-0.6rem))] leading-none whitespace-nowrap text-[#f0cf86]">{w.amount}</p>
+                      <p className="mt-5 text-xl font-bold tracking-wide uppercase">{w.type}</p>
+                    </li>
+                  ))}
+                </ul>
               ))}
             </div>
             <p className="mt-8 max-w-4xl text-base leading-relaxed text-white/75">
@@ -296,12 +330,12 @@ export default function Home() {
             <h2 className="text-[clamp(2rem,4vw,3.4rem)] leading-tight font-extrabold tracking-tight uppercase">Been in an accident? Get the help you need.</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {perks.map((p) => (
-                <div key={p} className="border-2 border-[#101c32] bg-white/30 p-5 text-xl leading-snug font-bold">{p}</div>
+                <div key={p} className="flex items-center justify-center border-2 border-[#101c32] bg-white/30 p-5 text-center text-xl leading-snug font-bold">{p}</div>
               ))}
             </div>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href={phoneHref} className="v2-btn v2-btn-navy !text-2xl"><PhoneIcon /> {phoneDisplay}</a>
-              <a href="#contact" className="v2-btn border-2 border-[#101c32] tracking-wide uppercase">Free case review</a>
+              <a href={phoneHref} className="v2-btn v2-btn-navy flex-wrap !text-2xl"><PhoneIcon /> Call Kottler &amp; Kottler now <span className="whitespace-nowrap text-[#f0cf86]">{phoneDisplay}</span></a>
+              <a href="#contact" className="v2-btn border-2 border-[#101c32] tracking-wide uppercase">Free case consultation</a>
             </div>
           </div>
         </section>
@@ -326,7 +360,16 @@ export default function Home() {
                 6420 Wilshire Boulevard, Penthouse<br />Los Angeles, CA 90048-5562<br />Fax: 213-387-2889
               </address>
             </div>
-            <LeadForm id="contact-form" title="Get your free case review" />
+            <LeadForm id="contact-form" title="Get your free case consultation" />
+          </div>
+          <div className="v2-wrap mt-14">
+            <iframe
+              title="Map to the Kottler & Kottler office at 6420 Wilshire Boulevard, Los Angeles"
+              src="https://www.google.com/maps?q=Kottler+%26+Kottler,+6420+Wilshire+Blvd,+Los+Angeles,+CA+90048&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block h-[22rem] w-full rounded-sm border-0 lg:h-[26rem]"
+            />
           </div>
         </section>
       </main>

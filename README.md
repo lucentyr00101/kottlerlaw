@@ -1,6 +1,6 @@
 # Kottler & Kottler
 
-Landing page for Kottler & Kottler, a boutique, family-owned personal injury law firm in Los Angeles serving Southern California since 1968. It is a single page with a case review form that emails each inquiry to the firm through Gmail SMTP.
+Landing page for Kottler & Kottler, a boutique, family-owned personal injury law firm in Los Angeles serving Southern California since 1968. It is a single page with a case consultation form that emails each inquiry to the firm through Gmail SMTP.
 
 ## Design and content sources
 
@@ -77,7 +77,7 @@ app/
 ├── actions/
 │   └── contact.ts           # Server Action: validates the form and sends the email
 ├── _components/
-│   ├── LeadForm.tsx         # Case review form (Client Component, useActionState)
+│   ├── LeadForm.tsx         # Case consultation form (Client Component, useActionState)
 │   ├── SiteHeader.tsx       # Sticky header with mobile menu
 │   └── site.tsx             # Shared constants (phone, nav) and PhoneIcon
 └── assets/                  # Logo, photography, membership badges
@@ -93,7 +93,7 @@ app/
 
 ## Contact form
 
-The page has two copies of the case review form, one in the hero and one in the contact section. Both submit to the `sendContactMessage` Server Action in `app/actions/contact.ts`, which:
+The page has two copies of the case consultation form, one in the hero and one in the contact section. Both submit to the `sendContactMessage` Server Action in `app/actions/contact.ts`, which:
 
 - validates first name, last name, phone, optional email, message, and the consent checkbox on the server;
 - returns field-level errors and keeps what the visitor entered when something goes wrong;

@@ -48,7 +48,7 @@ export function LeadForm({ title, id }: { title: string; id: string }) {
             <p role="alert" className="v2-error mt-5">{state.message}</p>
           )}
           <button type="submit" disabled={pending} aria-busy={pending} className="v2-btn v2-btn-gold mt-6 w-full !text-xl tracking-wide uppercase disabled:cursor-wait disabled:opacity-70">
-            {pending ? "Sending…" : "Get my free case review"}
+            {pending ? "Sending…" : "Get my free case consultation"}
           </button>
         </>
       )}

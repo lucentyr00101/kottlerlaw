@@ -82,7 +82,7 @@ export async function sendContactMessage(
       from: `"Kottler & Kottler Website" <${GMAIL_USER}>`,
       to: CONTACT_TO || GMAIL_USER,
       replyTo: email ? { name, address: email } : undefined,
-      subject: `New case review request from ${name}`,
+      subject: `New case consultation request from ${name}`,
       text: `${rows.map(([k, v]) => `${k}: ${v}`).join('\n')}\n\nWhat happened:\n${body}`,
       html: `${rows.map(([k, v]) => `<p><strong>${k}:</strong> ${escapeHtml(v)}</p>`).join('')}
 <p><strong>What happened:</strong></p>
