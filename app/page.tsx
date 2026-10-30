@@ -128,21 +128,34 @@ export default function Home() {
           <div className="v2-wrap grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
             <div>
               <p className="text-[clamp(0.8rem,1.15vw,1.125rem)] font-bold tracking-[0.06em] text-[#f0cf86] uppercase lg:whitespace-nowrap">Southern California Personal Injury Attorneys · Since 1968</p>
-              <p className="mt-5 font-extrabold tracking-tight uppercase">
-                <span className="block text-[clamp(1.9rem,3.2vw,2.9rem)] leading-tight">Call <span className="whitespace-nowrap">Kottler &amp; Kottler</span></span>
-                <a href={phoneHref} className="mt-1 inline-block font-serif text-[clamp(3rem,6.2vw,5.6rem)] leading-none font-normal tracking-normal whitespace-nowrap text-[#f0cf86] underline decoration-2 underline-offset-8">{phoneDisplay}</a>
-              </p>
-              <h1 className="mt-7 text-[clamp(1.6rem,2.6vw,2.2rem)] leading-tight font-bold">
-                Your case. <span className="font-serif font-normal text-[#f0cf86]">Our priority.</span>
+              <h1 className="mt-6 font-serif text-[clamp(3.25rem,5.8vw,5.25rem)] leading-[1.03] font-normal">
+                <span className="block">Your case.</span>
+                <span className="block text-[#f0cf86] italic">Our priority.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-[1.3rem] leading-[1.65] text-white/90">
-                Free consultation. Available 24/7. No fee unless we win. Speak one-on-one with the same experienced attorney from start to finish.
+              <div className="mt-6 h-[3px] w-[5.25rem] bg-[#d9a441]" aria-hidden="true" />
+              <p className="mt-7 max-w-xl text-[1.3rem] leading-[1.65] text-white/90">
+                Family-owned since 1968. Speak one-on-one with the same experienced attorney from start to finish, and pay no fee unless we win.
               </p>
-              <ul className="mt-8 grid gap-3 text-xl font-semibold sm:grid-cols-2">
-                {perks.slice(0, 4).map((p) => (
-                  <li key={p} className="flex items-center gap-3"><span className="text-[#f0cf86]" aria-hidden="true">✓</span>{p}</li>
-                ))}
-              </ul>
+              <a href={phoneHref} className="mt-8 flex max-w-xl items-center gap-3 rounded-[3px] border border-[#f0cf86]/60 bg-white/[0.06] p-4 transition hover:bg-white/[0.12] sm:gap-6 sm:px-7 sm:py-6">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#d9a441] text-[#101c32] sm:h-16 sm:w-16"><PhoneIcon size={26} /></span>
+                <span className="min-w-0">
+                  <span className="flex items-start gap-2 text-[0.8rem] leading-snug font-bold tracking-[0.08em] text-white/85 uppercase sm:text-[0.95rem]">
+                    <span className="mt-[0.33em] size-2.5 shrink-0 rounded-full bg-[#2fbf6b] ring-[3px] ring-[#2fbf6b]/30" aria-hidden="true" />
+                    <span><span className="block sm:inline">Free consultation</span><span className="hidden sm:inline"> · </span><span className="block sm:inline">Available 24/7</span></span>
+                  </span>
+                  <span className="mt-1 block font-serif text-[clamp(2.2rem,10vw,3.6rem)] leading-none whitespace-nowrap text-[#f0cf86]">{phoneDisplay}</span>
+                </span>
+              </a>
+              <p className="mt-7 text-base text-white/80 sm:text-lg">
+                <span className="block sm:inline">
+                  <span className="mr-2 text-[#d9a441]" aria-hidden="true">★</span>
+                  {reviewSources.toReversed().map((s, i) => (
+                    <span key={s.name}>{i > 0 && " · "}<strong className="font-bold text-white">{s.rating}</strong> on {s.name} ({s.count})</span>
+                  ))}
+                </span>
+                <span className="hidden sm:inline"> · </span>
+                <span className="block sm:inline">Habla Español</span>
+              </p>
             </div>
             <LeadForm id="hero-form" title="Get your free case consultation" />
           </div>
